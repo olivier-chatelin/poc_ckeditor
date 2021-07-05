@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <div style="margin:auto">
+
+        {% for blog in blogs %}
+    <div>
+            {{ blog.description|raw}}
+    </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+

@@ -5,10 +5,9 @@
 {% block body %}
 {{ form_start(form) }}
 {{ form_widget(form) }}
-<button>ok</button>
+<button>update</button>
     {{ form_end(form) }}
     <a href="{{ path("show") }}">Voir les blogs</a>
-    <a href="{{ path("edit") }}">Modifier les blogs</a>
 
 
 {% endblock %}

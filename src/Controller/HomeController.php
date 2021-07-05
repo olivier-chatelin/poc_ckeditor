@@ -40,4 +40,19 @@ class HomeController extends AbstractController
             'blogs' => $blogs,
         ]);
     }
+    /**
+     * @Route("/edit", name="edit")
+     */
+    public function edit(BlogRepository $blogRepository, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $blog = $blogRepository->findOneById(1);
+        $form = $this->createForm(BlogType::class, $blog);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+        }
+        return $this->render('home/edit.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
 }

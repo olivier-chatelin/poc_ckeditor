@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PersonController!{% endblock %}
+
+{% block body %}
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Action</th>
+    </tr>
+        {% for person in persons %}
+            <tr>
+                <td>{{ person.name }}</td>
+                <td><a href="{{ path('mail',{id:person.id}) }}">Envoyer Mail</a></td>
+            </tr>
+        {% endfor %}
+</table>
+{% endblock %}
